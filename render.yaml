@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: telegram-bot
+    env:
+      PORT: 8080
+    script:
+      command: gunicorn app:app & python3 bot.py
+    build:
+      command: pip install -r requirements.txt
+    healthcheck:
+      http:
+        path: /
+        port: 8080
