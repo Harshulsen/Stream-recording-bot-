@@ -1,3 +1,9 @@
+import json
+
+with open('secrets.json', 'r') as f:
+    secrets = json.load(f)
+
+TOKEN = secrets['TOKEN']
 import logging
 from telegram.ext import Updater, CommandHandler, MessageHandler
 import aiohttp
